@@ -1,5 +1,7 @@
 package com.amit.blogfeed.model;
 
+import android.util.Log;
+
 import com.amit.blogfeed.pojomodel.BlogLiveDataSet;
 
 import androidx.lifecycle.LiveData;
@@ -32,6 +34,7 @@ public class HomePageViewModel extends ViewModel {
         //Trying to use the existing DATA but it can be made more efficient based upon the Requirement by using ROOM database or Other means
         if (mBlogFeedDataSet == null || (isCallForRefresh && isNetworkConnected)) {
             mBlogFeedDataSet = homePageAPIServiceModel.getBlogFeedsAPICall();
+            Log.d("commit","pushed");
         }
         return mBlogFeedDataSet;
     }
